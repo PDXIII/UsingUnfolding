@@ -16,30 +16,19 @@ import processing.opengl.*;
 import codeanticode.glgraphics.*;
 
 UnfoldingMap map;
-List<Marker> countryMarkers;
 
 void setup() {
   size(800, 600, GLConstants.GLGRAPHICS);
-  frameRate(12);
   smooth();
 
   map = new UnfoldingMap(this);
   MapUtils.createDefaultEventDispatcher(this, map);
 
   List<Feature> countries = GeoJSONReader.loadData(this, "countries.geo.json");
-  countryMarkers = MapUtils.createSimpleMarkers(countries);
-  // map.addMarkers(countryMarkers);
+  List<Marker> countryMarkers = MapUtils.createSimpleMarkers(countries);
+  map.addMarkers(countryMarkers);
 }
 
 void draw() {
   map.draw();
-  Location mouseLocation = map.getLocationFromScreenPosition(mouseX, mouseY);
-  // print("mouseLocation: " + mouseLocation);
-  for (Marker country : countryMarkers){
-    if(country.isInside(map, mouseX, mouseY)){
-        print("country:" + country.getProperties());
-        country.draw(map);
-    }
-  }
 }
-
