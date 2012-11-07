@@ -39,7 +39,7 @@ That means we don't want the `countryMarkers` to be added to the `map` and for f
 
 Delete:
 
-      map.addMarkers(countryMarkers);
+    map.addMarkers(countryMarkers);
 
 Insert (at top):
 
@@ -47,11 +47,11 @@ Insert (at top):
 
 Change:
 
-      List<Marker> countryMarkers = MapUtils.createSimpleMarkers(countries);
+    List<Marker> countryMarkers = MapUtils.createSimpleMarkers(countries);
 
 into:
 
-      countryMarkers = MapUtils.createSimpleMarkers(countries);
+    countryMarkers = MapUtils.createSimpleMarkers(countries);
 
 **Run the program!**
 
@@ -77,12 +77,12 @@ The properties are stored in a `HashMap`, though you can get a value by looking 
 
 Please edit your if-statement like this:
 
-      if(country.isInside(map, mouseX, mouseY)){
-        country.draw(map);
-        HashMap countryProps = country.getProperties();
-        String countryName = countryProps.get("name").toString();
-        println(countryName);
-      }
+    if(country.isInside(map, mouseX, mouseY)){
+      country.draw(map);
+      HashMap countryProps = country.getProperties();
+      String countryName = countryProps.get("name").toString();
+      println(countryName);
+    }
 
 **Run!**
 
@@ -136,9 +136,9 @@ Now you should have the hover effect and a string output in your console. Good J
 
 Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
 
-      List<Feature> airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
-      List<Marker> airportMarkers = MapUtils.createSimpleMarkers(airports);
-      map.addMarkers(airportMarkers);
+    List<Feature> airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
+    List<Marker> airportMarkers = MapUtils.createSimpleMarkers(airports);
+    map.addMarkers(airportMarkers);
 
 **And run!**
 
