@@ -8,7 +8,12 @@ In this tutorial we will build a map showing us the airport of the country we po
 
 ##Data
 We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: [contries.geo.json][contries.geo.json].
-The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at [GeoCommons][GeoCommons]. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid *geo.json* version of this data set, but I have a gift for you: [GeoCommonsGEOJSON][GeoCommonsGEOJSON]. This link provides a javascript code, you can use as an bookmarklet in your browser. Now when you are back on the data-set at *GeoCommons* you only need to hit this bookmarklet and you will be led to a valid version of this data-set. Save it as *WorldAirports.geo.json*
+The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at [GeoCommons][GeoCommons]. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid *geo.json* version of this data set, but I have a gift for you: 
+
+<button><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
+</button> Drag this button into bookmark bar to creat a bookmarklet.
+
+Now when you are back on the data-set at *GeoCommons* you only need to hit this bookmarklet and you will be led to a valid *geo.json* version of this data-set. Save it as *WorldAirports.geo.json*
 
 Now, we have two files: *countries.geo.json* and *WorldAirports.json*. So, let's write some code.
 
@@ -26,6 +31,8 @@ into
 
       List<Feature> countries = GeoJSONReader.loadData(this, "countries.geo.json");
 
+**Run!**
+
 Yes, I told you the shapes are rough, but the performance is quite good. Please don't mind the gray, you can take care about that later. The bigger problem for now is: we don't want the countries to be displayed permanently. Just when the mouse hovers it, we want to see the shape.
 
 That means we don't want the `countryMarkers` to be added to the `map` and for further use we need those `Markers` globaly. So please make following changes:
@@ -39,12 +46,14 @@ Insert (at top):
     List<Marker> countryMarkers;
 
 Change:
+
       List<Marker> countryMarkers = MapUtils.createSimpleMarkers(countries);
 
 into:
+
       countryMarkers = MapUtils.createSimpleMarkers(countries);
 
-*Run the program!*
+**Run the program!**
 
 If you get no error and you see no shape – everthing is fine!
 
@@ -60,7 +69,7 @@ Remember, that we only want to see the country's shape when we hover it. Therefo
       }
     }
 
-*Run!*
+**Run!**
 
 Ah! Nice! We have a hover effect. At this point I'd like to talk a little bit about the use of the properties of a geo.json feature. Often you will find really useful content inside it. For example every feature (country) of our *countries.geo.json* contains the full name of its country. You can use this to eventually display it. 
 
@@ -75,7 +84,7 @@ Please edit your if-statement like this:
         println(countryName);
       }
 
-*Run!*
+**Run!**
 
 Now you should have the hover effect and a string output in your console. Good Job! If you should have contrary to expectations any trouble, then you can now compare your code:
 
@@ -125,17 +134,17 @@ Now you should have the hover effect and a string output in your console. Good J
 
 ###Airports & Performance
 
-Now let's get hands on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
+Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
 
       List<Feature> airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
       List<Marker> airportMarkers = MapUtils.createSimpleMarkers(airports);
       map.addMarkers(airportMarkers);
 
-*And run!*
+**And run!**
 
 There are quite a lot of airports to display and it seems to me like a little loss of performance. And remember that we just want to see the airports of the country we are hovering. First of all we have to make the same changes on the airports stuff, that we made on the countries stuff: make the `Markers` global and don't add them to the `map`.
 
-If you are done, let's think about, how we should handle the airports! My suggestion is to sort them into `ArrayLists` for each country one. Then we only have to call for that ArrayList and tell each airport inside to draw itself. Would be nice if this sorting could be done in advance, but the *WorldAirports.geo.json* lacks of meta information (properites), and the [Unfolding library][Unfolding library] needs to draw a map to compare the locations of two features. Therefore we must do the sorting one time during runtime. Please, make a global boolean an set it on false:
+If you are done, let's think about, how we should handle the airports. My suggestion is to sort them into `ArrayLists` for each country one. Then we only have to call for that ArrayList and tell each airport inside to draw itself. Would be nice if this sorting could be done in advance, but the *WorldAirports.geo.json* lacks of meta information (properites), and the [Unfolding library][Unfolding library] needs to draw a map to compare the locations of two features. Therefore we must do the sorting one time during runtime. Please, make a global boolean an set it on false:
 
     boolean airportListsBuild = false;
 
@@ -150,7 +159,7 @@ Then go into your `draw()` function and make an `if-else` statement under the `m
 
 And put all code below this statement between the else brackets.
 
-*Run!*
+**Run!**
 
 You should neither have an error nor any hover effect or output. Because all this will only work when `airportsListsBuild` is true. Meanwhile we'll do the sorting and we are going to to this with an own function.
 
@@ -173,7 +182,7 @@ this calls the function with the necessary parameters. Then make this new functi
 
 This function receives the parameters, makes a `new ArrayList`, sets our `boolean` to `true` and returns the `ArrayList`.
 
-*Run! *
+**Run!**
 
 As you can see, our known interactions are back again, because when the function is called our `boolean` is set to `true` and the `else` part of our `if`-statement is executed. 
 
@@ -249,14 +258,14 @@ Now we have a good structure, so let's play with it. We need to edit the `else` 
     }
 
 ##Style
-Now it's time to get rid of the gray and add a little style, but you should do this own your own. For more tutorials concerning this and other topics, please visit [Unfolding tutorials][Unfolding tutorials].
+Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit [Unfolding tutorials][Unfolding tutorials].
 
 
 
-[Unfolding library]: http://http://unfoldingmaps.org/
+[Unfolding library]: http://unfoldingmaps.org/
 [Processing]: http://processing.org/
-[Till Nagel]: http://http://tillnagel.com/
-[contries.geo.json]: http://https://github.com/johan/world.geo.json/blob/master/countries.geo.json
+[Till Nagel]: http://tillnagel.com/
+[contries.geo.json]: https://github.com/johan/world.geo.json/blob/master/countries.geo.json
 [GeoCommons]: http://geocommons.com/
 [GeoCommonsGEOJSON]: https://gist.github.com/4030898
 [Unfolding tutorials]: http://unfoldingmaps.org/tutorials/index.html
