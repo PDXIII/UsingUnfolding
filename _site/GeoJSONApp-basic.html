@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>page.title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le favicon -->
+    <link rel="shortcut icon" type="image/png" href="">
+    
+    <!-- Le styles -->
+    <!-- own css-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+    <body id="page.title">
+        <div class="container">
+            <h1>GeoJSONApp-basic</h1>
+
+<p>In our first part we are going to chase some data for our map.</p>
+
+<h2>Data</h2>
+
+<p>We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: <a href="https://github.com/johan/world.geo.json/blob/master/countries.geo.json">countries.geo.json</a>.
+The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at <a href="http://geocommons.com/">GeoCommons</a>. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid <em>geo.json</em> version of this data set, but I have a gift for you:</p>
+
+<p><button><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
+</button></p>
+
+<p>Drag this button into bookmark bar to create a bookmarklet.</p>
+
+<p>Now when you are back on the data-set at <em>GeoCommons</em> you only need to hit this bookmarklet and you will be led to a valid <em>geo.json</em> version of this data-set. Save it as <em>WorldAirports.geo.json</em></p>
+
+<p>Now, we have two files: <em>countries.geo.json</em> and <em>WorldAirports.json</em>. So, let's write some code.</p>
+
+<p><strong>Note: While writing this tutorial, the world airports data-set disappeared on GeoCommons. But there is a version in the download files.</strong></p>
+
+<h2>Code</h2>
+
+<p>Let's start with opening the <em>GeoJsonApp.pde</em> from the examples folder of the Unfolding library, save it as <em>GeoJSONApp-basic.pde</em> and add the files to your project (for lazy guys is this sketch already included in the download folder).</p>
+
+<h3>Countries &amp; Interaction</h3>
+
+<p>Now, let's see how the countries will be displayed by changing the following</p>
+
+<pre><code>  List&lt;Feature&gt; countries = GeoJSONReader.loadData(this, "countries-simple.geo.json");
+</code></pre>
+
+<p>into</p>
+
+<pre><code>  List&lt;Feature&gt; countries = GeoJSONReader.loadData(this, "countries.geo.json");
+</code></pre>
+
+<p><strong>Run!</strong></p>
+
+<p>Yes, I told you the shapes are rough, but the performance is quite good. Please don't mind the gray, you can take care about that later. The bigger problem for now is: we don't want the countries to be displayed permanently. Just when the mouse hovers it, we want to see the shape. So let`s continue with the <a href="/GeoJSONApp-ext01.html">next part …</a></p>
+
+        </div>
+
+            <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+        <!-- own scripts-->
+    </body>
+</html>

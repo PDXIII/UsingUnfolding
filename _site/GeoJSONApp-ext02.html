@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>page.title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le favicon -->
+    <link rel="shortcut icon" type="image/png" href="">
+    
+    <!-- Le styles -->
+    <!-- own css-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+    <body id="page.title">
+        <div class="container">
+            <h1>GeoJSONApp-ext02</h1>
+
+<p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
+
+<pre><code>List&lt;Feature&gt; airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
+List&lt;Marker&gt; airportMarkers = MapUtils.createSimpleMarkers(airports);
+map.addMarkers(airportMarkers);
+</code></pre>
+
+<p><strong>And run!</strong></p>
+
+<p>There are quite a lot of airports to display and it seems to me like a little loss of performance. And remember that we just want to see the airports of the country we are hovering. First of all we have to make the same changes on the airports stuff, that we made on the countries stuff: make the <code>Markers</code> global and don't add them to the <code>map</code>.</p>
+
+<p>If you are done, let's think about, how we should handle the airports. My suggestion is to sort them into <code>ArrayLists</code> for each country one. Then we only have to call for that ArrayList and tell each airport inside to draw itself. Would be nice if this sorting could be done in advance, but the <em>WorldAirports.geo.json</em> lacks of meta information (properites), and the <a href="http://unfoldingmaps.org/">Unfolding library</a> needs to draw a map to compare the locations of two features. Therefore we must do the sorting one time during runtime. Please, make a global boolean an set it on false:</p>
+
+<pre><code>boolean airportListsBuild = false;
+</code></pre>
+
+<p>Then go into your <code>draw()</code> function and make an <code>if-else</code> statement under the <code>map.draw()</code> that executes when the boolean is false.</p>
+
+<pre><code>if(!airportListsBuild){
+
+}
+else{
+
+}
+</code></pre>
+
+<p>And put all code below this statement between the else brackets.</p>
+
+<p><strong>Run!</strong></p>
+
+<p>You should neither have an error nor any hover effect or output. Because all this will only work when <code>airportsListsBuild</code> is true. Meanwhile we'll do the sorting and we are going to to this with an own function.</p>
+
+<p>So please insert a global <code>ArrayList&lt;ArrayList&gt; airportLists</code>, then edit your if-statement like this:</p>
+
+<pre><code>if(!airportListsBuild){
+  airportLists = makeAirportLists(map, countryMarkers, airportMarkers);
+}
+</code></pre>
+
+<p>this calls the function with the necessary parameters. Then make this new function under your draw() function:</p>
+
+<pre><code>ArrayList &lt;ArrayList&gt; makeAirportLists(
+    UnfoldingMap map, 
+    List&lt;Marker&gt; countryMarkers, 
+    List&lt;Marker&gt; airportMarkers){
+      ArrayList &lt;ArrayList&gt; lists = new ArrayList();
+      airportListsBuild = true;
+      return lists;
+}
+</code></pre>
+
+<p>This function receives the parameters, makes a <code>new ArrayList</code>, sets our <code>boolean</code> to <code>true</code> and returns the <code>ArrayList</code>.</p>
+
+<p><strong>Run!</strong></p>
+
+<p>As you can see, our known interactions are back again, because when the function is called our <code>boolean</code> is set to <code>true</code> and the <code>else</code> part of our <code>if</code>-statement is executed.</p>
+
+<p>Now let's start sorting. For every country we want to check if there are any airports and put them into a list for each country.</p>
+
+<p>Let's see:</p>
+
+<pre><code>ArrayList &lt;ArrayList&gt; makeAirportLists(
+    UnfoldingMap map, 
+    List&lt;Marker&gt; countryMarkers, 
+    List&lt;Marker&gt; airportMarkers){
+
+  ArrayList &lt;ArrayList&gt; lists = new ArrayList();
+
+  // iterating through the countryMarkers
+  for (Marker country : countryMarkers){
+
+    // a new ArrayList for each country
+    ArrayList currentMarkerList = new ArrayList();
+
+    // iterating through the airportMarkers
+    for (Marker airport : airportMarkers){
+
+      // we need to get the Loction of the airport
+      Location airportLocation = airport.getLocation();
+
+      // we need do convert it into a ScreenPosition
+      ScreenPosition airportScreenPos = map.getScreenPosition(airportLocation);
+
+      // and if this ScreenPosition is inside the country
+      if(country.isInside(map, airportScreenPos.x, airportScreenPos.y)){
+
+        // we add the Marker to this ArrayList
+        currentMarkerList.add(airport);
+      }
+    }
+    // we add this ArrayList of Markers to our ArrayList of ArrayLists
+    lists.add(currentMarkerList);
+
+    // to see if the program is running we generate some output
+    println(lists.size());
+  }
+  airportListsBuild = true;
+  return lists;
+}
+</code></pre>
+
+<p>Now we have a good structure, so let's play with it. We need to edit the <code>else</code> section in our <code>draw()</code> function after the <code>println(countryName)</code>:</p>
+
+<pre><code>// we need to get right the airport list for the current country
+// because airportLists is sorted after the coutries i calls the right one
+ArrayList&lt;Marker&gt; currentAirportList = airportLists.get(i);
+
+// iterating through this airport list
+for (Marker currentAirport : currentAirportList ){
+
+  // tell airport to draw itself
+  currentAirport.draw(map);
+
+  // check for mouse hover
+  if (currentAirport.isInside(map, mouseX, mouseY)){
+
+    // you should know this from the countries part
+    HashMap currentAirportProps = currentAirport.getProperties();
+
+    // Note: in this case "NAME" is written in uppercase,
+    // this depends on the given geo.json file
+    // it's better to know your data
+    String currentAirportName = currentAirportProps.get("NAME").toString();
+
+    // string output into the console
+    println(currentAirportName);
+  }
+}
+</code></pre>
+
+<h2>Style</h2>
+
+<p>Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit <a href="http://unfoldingmaps.org/tutorials/index.html">Unfolding tutorials</a>.</p>
+
+        </div>
+
+            <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+        <!-- own scripts-->
+    </body>
+</html>
