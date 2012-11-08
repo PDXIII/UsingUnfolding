@@ -13,7 +13,7 @@ These tutorials cover the use of [GeoJSON][GeoJSON] files with [Unfolding][Unfol
 {% for page in site.pages %}
 {% if page.category == 'GeoJSONApp' %}
 <ul>
-    <li><a href="/UsingUnfolding/{{ page.url }}">{{ page.title }}</a></li>
+    <li><a href="/UsingUnfolding{{ page.url }}">{{ page.title }}</a></li>
 </ul>
 {% endif %}
 {% endfor %}
