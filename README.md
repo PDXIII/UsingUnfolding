@@ -132,7 +132,7 @@ Now you should have the hover effect and a string output in your console. Good J
       }
     }
 
-###Airports & Performance
+###Airports
 
 Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
 
