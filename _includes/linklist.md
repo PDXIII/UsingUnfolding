@@ -6,6 +6,6 @@
 [GeoCommons]: http://geocommons.com/
 [GeoCommonsGEOJSON]: https://gist.github.com/4030898
 [Unfolding tutorials]: http://unfoldingmaps.org/tutorials/index.html
-[GeoJSONApp-basic]: /GeoJSONApp-basic.html
-[GeoJSONApp-ext01]: /GeoJSONApp-ext01.html
-[GeoJSONApp-ext02]: /GeoJSONApp-ext02.html
+[GeoJSONApp-basic]: /UsingUnfolding/GeoJSONApp-basic.html
+[GeoJSONApp-ext01]: /UsingUnfolding/GeoJSONApp-ext01.html
+[GeoJSONApp-ext02]: /UsingUnfolding/GeoJSONApp-ext02.html
