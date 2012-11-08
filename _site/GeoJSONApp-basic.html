@@ -22,7 +22,7 @@
 
 <h2>Data</h2>
 
-<p>We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: <a href="https://github.com/johan/world.geo.json/blob/master/countries.geo.json">countries.geo.json</a>.
+<p>We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: [countries.geo.json][countries.geo.json].
 The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at <a href="http://geocommons.com/">GeoCommons</a>. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid <em>geo.json</em> version of this data set, but I have a gift for you:</p>
 
 <p><button><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
