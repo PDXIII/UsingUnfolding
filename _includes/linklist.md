@@ -10,3 +10,4 @@
 [GeoJSONApp-ext01]: /UsingUnfolding/GeoJSONApp-ext01.html
 [GeoJSONApp-ext02]: /UsingUnfolding/GeoJSONApp-ext02.html
 [League Gothic]: https://github.com/theleagueof/league-gothic
+[Lightbox2]: http://lokeshdhakar.com/projects/lightbox2/

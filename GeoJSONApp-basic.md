@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: page
 title: GeoJSONApp-basic
 category: GeoJSONApp
 teaser: In our first part we are going to chase some data for our map.
+next: GeoJSONApp-ext01
 ---
 
 ##Data
@@ -18,7 +19,7 @@ Now when you are back on the data-set at *GeoCommons* you only need to hit this 
 
 Now, we have two files: *countries.geo.json* and *WorldAirports.json*. So, let's write some code.
 
-**Note: While writing this tutorial, the world airports data-set disappeared on GeoCommons. But there is a version in the download files.**
+**Note:** While writing this tutorial, the world airports data-set disappeared on GeoCommons. But there is a version in the download files.
 
 ##Code
 Let's start with opening the *GeoJsonApp.pde* from the examples folder of the Unfolding library, save it as *GeoJSONApp-basic.pde* and add the files to your project (for lazy guys is this sketch already included in the download folder). 
@@ -26,11 +27,15 @@ Let's start with opening the *GeoJsonApp.pde* from the examples folder of the Un
 ###Countries & Interaction
 Now, let's see how the countries will be displayed by changing the following
 
+{% highlight java %}
       List<Feature> countries = GeoJSONReader.loadData(this, "countries-simple.geo.json");
+{% endhighlight %}
 
 into
 
+{% highlight java %}
       List<Feature> countries = GeoJSONReader.loadData(this, "countries.geo.json");
+{% endhighlight %}
 
 **Run!**
 

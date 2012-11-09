@@ -1,15 +1,24 @@
 ---
-layout: default
+layout: page
 title: GeoJSONApp-ext02
 category: GeoJSONApp
 teaser: BlaBla
+prev: GeoJSONApp-ext01
+lightbox: 
+- 1
+- 2
+- 3
+- 4
+- 5
 ---
 
 Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
 
+{% highlight java %}
     List<Feature> airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
     List<Marker> airportMarkers = MapUtils.createSimpleMarkers(airports);
     map.addMarkers(airportMarkers);
+{% endhighlight %}
 
 **And run!**
 
@@ -21,12 +30,14 @@ If you are done, let's think about, how we should handle the airports. My sugges
 
 Then go into your `draw()` function and make an `if-else` statement under the `map.draw()` that executes when the boolean is false.
 
+{% highlight java %}
     if(!airportListsBuild){
 
     }
     else{
       
     }
+{% endhighlight %}
 
 And put all code below this statement between the else brackets.
 
@@ -36,12 +47,15 @@ You should neither have an error nor any hover effect or output. Because all thi
 
 So please insert a global `ArrayList<ArrayList> airportLists`, then edit your if-statement like this:
 
+{% highlight java %}
     if(!airportListsBuild){
       airportLists = makeAirportLists(map, countryMarkers, airportMarkers);
     }
+{% endhighlight %}
 
 this calls the function with the necessary parameters. Then make this new function under your draw() function:
 
+{% highlight java %}
     ArrayList <ArrayList> makeAirportLists(
         UnfoldingMap map, 
         List<Marker> countryMarkers, 
@@ -50,6 +64,7 @@ this calls the function with the necessary parameters. Then make this new functi
           airportListsBuild = true;
           return lists;
     }
+{% endhighlight %}
 
 This function receives the parameters, makes a `new ArrayList`, sets our `boolean` to `true` and returns the `ArrayList`.
 
@@ -61,6 +76,7 @@ Now let's start sorting. For every country we want to check if there are any air
 
 Let's see:
 
+{% highlight java %}
     ArrayList <ArrayList> makeAirportLists(
         UnfoldingMap map, 
         List<Marker> countryMarkers, 
@@ -99,9 +115,12 @@ Let's see:
       airportListsBuild = true;
       return lists;
     }
+{% endhighlight %}
+
 
 Now we have a good structure, so let's play with it. We need to edit the `else` section in our `draw()` function after the `println(countryName)`:
 
+{% highlight java %}
     // we need to get right the airport list for the current country
     // because airportLists is sorted after the coutries i calls the right one
     ArrayList<Marker> currentAirportList = airportLists.get(i);
@@ -127,9 +146,12 @@ Now we have a good structure, so let's play with it. We need to edit the `else` 
         println(currentAirportName);
       }
     }
+{% endhighlight %}
 
 ##Style
 Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit [Unfolding tutorials][Unfolding tutorials].
+
+{% include lightbox.html %}
 
 
 {% include linklist.md %}

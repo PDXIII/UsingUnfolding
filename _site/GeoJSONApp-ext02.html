@@ -13,31 +13,34 @@
     <!-- Le styles -->
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/pygmentsstyle.css">
+    <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/lightbox.css">
 </head>
     <body id="GeoJSONApp-ext02">
         <div class="container">
             <div class="span10 offset1">
                 <div class="row">
                     <div class="span8">
-                        <h1>GeoJSONApp-ext02</h1>
+                        <h1>GEOJSONAPP-EXT02</h1>
                     </div>
                     <div class="span2 hidden-phone">
-                        <div class="dl-button">
-    <a href="https://github.com/PDXIII/UsingUnfolding/zipball/master">
-        download <strong>.zip</strong>
-    </a>
-</div>
-<div class="dl-button">
-    <a href="https://github.com/PDXIII/UsingUnfolding/tarball/master">
-        download <strong>.tar</strong>
-    </a>
-</div>
-<div class="dl-button">
-    <a href="https://github.com/PDXIII/UsingUnfolding">
-        fork on <strong>github</strong>
-    </a>
-</div>
-
+                        <ul id="dlbuttons">
+    <li>
+        <a href="https://github.com/PDXIII/UsingUnfolding/zipball/master">
+            .zip
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/PDXIII/UsingUnfolding/tarball/master">
+            .tar
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/PDXIII/UsingUnfolding">
+            github
+        </a>
+    </li>
+</ul>
                     </div>
                 </div>
                 <div class="row">
@@ -85,13 +88,19 @@
 </ul>
 <!-- /nav -->
                 </div>
-                <h2>BlaBla</h2>
+                <div class="row">
+                <div class="span10">
+                    <h2>BlaBla</h2>
+                    </div>
+                </div>
                 <p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
 
-<pre><code>List&lt;Feature&gt; airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
-List&lt;Marker&gt; airportMarkers = MapUtils.createSimpleMarkers(airports);
-map.addMarkers(airportMarkers);
+<div class="highlight"><pre><code class="java">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Feature</span><span class="o">&gt;</span> <span class="n">airports</span> <span class="o">=</span> <span class="n">GeoJSONReader</span><span class="o">.</span><span class="na">loadData</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;WorldAirports.geo.json&quot;</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">airportMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">airports</span><span class="o">);</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">addMarkers</span><span class="o">(</span><span class="n">airportMarkers</span><span class="o">);</span>
 </code></pre>
+</div>
+
 
 <p><strong>And run!</strong></p>
 
@@ -104,13 +113,15 @@ map.addMarkers(airportMarkers);
 
 <p>Then go into your <code>draw()</code> function and make an <code>if-else</code> statement under the <code>map.draw()</code> that executes when the boolean is false.</p>
 
-<pre><code>if(!airportListsBuild){
+<div class="highlight"><pre><code class="java">    <span class="k">if</span><span class="o">(!</span><span class="n">airportListsBuild</span><span class="o">){</span>
 
-}
-else{
-
-}
+    <span class="o">}</span>
+    <span class="k">else</span><span class="o">{</span>
+      
+    <span class="o">}</span>
 </code></pre>
+</div>
+
 
 <p>And put all code below this statement between the else brackets.</p>
 
@@ -120,22 +131,26 @@ else{
 
 <p>So please insert a global <code>ArrayList&lt;ArrayList&gt; airportLists</code>, then edit your if-statement like this:</p>
 
-<pre><code>if(!airportListsBuild){
-  airportLists = makeAirportLists(map, countryMarkers, airportMarkers);
-}
+<div class="highlight"><pre><code class="java">    <span class="k">if</span><span class="o">(!</span><span class="n">airportListsBuild</span><span class="o">){</span>
+      <span class="n">airportLists</span> <span class="o">=</span> <span class="n">makeAirportLists</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">countryMarkers</span><span class="o">,</span> <span class="n">airportMarkers</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
+</div>
+
 
 <p>this calls the function with the necessary parameters. Then make this new function under your draw() function:</p>
 
-<pre><code>ArrayList &lt;ArrayList&gt; makeAirportLists(
-    UnfoldingMap map, 
-    List&lt;Marker&gt; countryMarkers, 
-    List&lt;Marker&gt; airportMarkers){
-      ArrayList &lt;ArrayList&gt; lists = new ArrayList();
-      airportListsBuild = true;
-      return lists;
-}
+<div class="highlight"><pre><code class="java">    <span class="n">ArrayList</span> <span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&gt;</span> <span class="n">makeAirportLists</span><span class="o">(</span>
+        <span class="n">UnfoldingMap</span> <span class="n">map</span><span class="o">,</span> 
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span><span class="o">,</span> 
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">airportMarkers</span><span class="o">){</span>
+          <span class="n">ArrayList</span> <span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&gt;</span> <span class="n">lists</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+          <span class="n">airportListsBuild</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+          <span class="k">return</span> <span class="n">lists</span><span class="o">;</span>
+    <span class="o">}</span>
 </code></pre>
+</div>
+
 
 <p>This function receives the parameters, makes a <code>new ArrayList</code>, sets our <code>boolean</code> to <code>true</code> and returns the <code>ArrayList</code>.</p>
 
@@ -147,78 +162,139 @@ else{
 
 <p>Let's see:</p>
 
-<pre><code>ArrayList &lt;ArrayList&gt; makeAirportLists(
-    UnfoldingMap map, 
-    List&lt;Marker&gt; countryMarkers, 
-    List&lt;Marker&gt; airportMarkers){
+<div class="highlight"><pre><code class="java">    <span class="n">ArrayList</span> <span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&gt;</span> <span class="n">makeAirportLists</span><span class="o">(</span>
+        <span class="n">UnfoldingMap</span> <span class="n">map</span><span class="o">,</span> 
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span><span class="o">,</span> 
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">airportMarkers</span><span class="o">){</span>
 
-  ArrayList &lt;ArrayList&gt; lists = new ArrayList();
+      <span class="n">ArrayList</span> <span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&gt;</span> <span class="n">lists</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
 
-  // iterating through the countryMarkers
-  for (Marker country : countryMarkers){
+      <span class="c1">// iterating through the countryMarkers</span>
+      <span class="k">for</span> <span class="o">(</span><span class="n">Marker</span> <span class="n">country</span> <span class="o">:</span> <span class="n">countryMarkers</span><span class="o">){</span>
 
-    // a new ArrayList for each country
-    ArrayList currentMarkerList = new ArrayList();
+        <span class="c1">// a new ArrayList for each country</span>
+        <span class="n">ArrayList</span> <span class="n">currentMarkerList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
 
-    // iterating through the airportMarkers
-    for (Marker airport : airportMarkers){
+        <span class="c1">// iterating through the airportMarkers</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Marker</span> <span class="n">airport</span> <span class="o">:</span> <span class="n">airportMarkers</span><span class="o">){</span>
 
-      // we need to get the Loction of the airport
-      Location airportLocation = airport.getLocation();
+          <span class="c1">// we need to get the Loction of the airport</span>
+          <span class="n">Location</span> <span class="n">airportLocation</span> <span class="o">=</span> <span class="n">airport</span><span class="o">.</span><span class="na">getLocation</span><span class="o">();</span>
 
-      // we need do convert it into a ScreenPosition
-      ScreenPosition airportScreenPos = map.getScreenPosition(airportLocation);
+          <span class="c1">// we need do convert it into a ScreenPosition</span>
+          <span class="n">ScreenPosition</span> <span class="n">airportScreenPos</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">getScreenPosition</span><span class="o">(</span><span class="n">airportLocation</span><span class="o">);</span>
 
-      // and if this ScreenPosition is inside the country
-      if(country.isInside(map, airportScreenPos.x, airportScreenPos.y)){
+          <span class="c1">// and if this ScreenPosition is inside the country</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">country</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">airportScreenPos</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">airportScreenPos</span><span class="o">.</span><span class="na">y</span><span class="o">)){</span>
 
-        // we add the Marker to this ArrayList
-        currentMarkerList.add(airport);
-      }
-    }
-    // we add this ArrayList of Markers to our ArrayList of ArrayLists
-    lists.add(currentMarkerList);
+            <span class="c1">// we add the Marker to this ArrayList</span>
+            <span class="n">currentMarkerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">airport</span><span class="o">);</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// we add this ArrayList of Markers to our ArrayList of ArrayLists</span>
+        <span class="n">lists</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">currentMarkerList</span><span class="o">);</span>
 
-    // to see if the program is running we generate some output
-    println(lists.size());
-  }
-  airportListsBuild = true;
-  return lists;
-}
+        <span class="c1">// to see if the program is running we generate some output</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">lists</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+      <span class="o">}</span>
+      <span class="n">airportListsBuild</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="k">return</span> <span class="n">lists</span><span class="o">;</span>
+    <span class="o">}</span>
 </code></pre>
+</div>
+
 
 <p>Now we have a good structure, so let's play with it. We need to edit the <code>else</code> section in our <code>draw()</code> function after the <code>println(countryName)</code>:</p>
 
-<pre><code>// we need to get right the airport list for the current country
-// because airportLists is sorted after the coutries i calls the right one
-ArrayList&lt;Marker&gt; currentAirportList = airportLists.get(i);
+<div class="highlight"><pre><code class="java">    <span class="c1">// we need to get right the airport list for the current country</span>
+    <span class="c1">// because airportLists is sorted after the coutries i calls the right one</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">currentAirportList</span> <span class="o">=</span> <span class="n">airportLists</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
 
-// iterating through this airport list
-for (Marker currentAirport : currentAirportList ){
+    <span class="c1">// iterating through this airport list</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">Marker</span> <span class="n">currentAirport</span> <span class="o">:</span> <span class="n">currentAirportList</span> <span class="o">){</span>
 
-  // tell airport to draw itself
-  currentAirport.draw(map);
+      <span class="c1">// tell airport to draw itself</span>
+      <span class="n">currentAirport</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
 
-  // check for mouse hover
-  if (currentAirport.isInside(map, mouseX, mouseY)){
+      <span class="c1">// check for mouse hover</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">currentAirport</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">mouseX</span><span class="o">,</span> <span class="n">mouseY</span><span class="o">)){</span>
 
-    // you should know this from the countries part
-    HashMap currentAirportProps = currentAirport.getProperties();
+        <span class="c1">// you should know this from the countries part</span>
+        <span class="n">HashMap</span> <span class="n">currentAirportProps</span> <span class="o">=</span> <span class="n">currentAirport</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
 
-    // Note: in this case "NAME" is written in uppercase,
-    // this depends on the given geo.json file
-    // it's better to know your data
-    String currentAirportName = currentAirportProps.get("NAME").toString();
+        <span class="c1">// Note: in this case &quot;NAME&quot; is written in uppercase,</span>
+        <span class="c1">// this depends on the given geo.json file</span>
+        <span class="c1">// it&#39;s better to know your data</span>
+        <span class="n">String</span> <span class="n">currentAirportName</span> <span class="o">=</span> <span class="n">currentAirportProps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;NAME&quot;</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
 
-    // string output into the console
-    println(currentAirportName);
-  }
-}
+        <span class="c1">// string output into the console</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">currentAirportName</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
+</div>
+
 
 <h2>Style</h2>
 
 <p>Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit <a href="http://unfoldingmaps.org/tutorials/index.html">Unfolding tutorials</a>.</p>
+
+<div id="gallery" class="row">
+    <ul>
+      
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-1.png" rel="lightbox[GeoJSONApp-ext02]">
+                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-1.png"/>
+            </a>
+        </li>
+        
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-2.png" rel="lightbox[GeoJSONApp-ext02]">
+                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-2.png"/>
+            </a>
+        </li>
+        
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-3.png" rel="lightbox[GeoJSONApp-ext02]">
+                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-3.png"/>
+            </a>
+        </li>
+        
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-4.png" rel="lightbox[GeoJSONApp-ext02]">
+                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-4.png"/>
+            </a>
+        </li>
+        
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-5.png" rel="lightbox[GeoJSONApp-ext02]">
+                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-5.png"/>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+
+<div class="row">
+    <ul class="nav">
+  
+  <li>
+    <a class="span2" href="/UsingUnfolding/GeoJSONApp-ext01.html">Previous</a>
+  </li>
+  
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Top</a>
+  </li>
+    
+</ul>
+<!-- /nav -->
+</div>
+                <br />
+                <br />
 
             </div>
         </div>
@@ -229,6 +305,7 @@ for (Marker currentAirport : currentAirportList ){
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script>window.jQuery || document.write('<script src="/UsingUnfolding/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
         <script type="text/javascript" src="/UsingUnfolding/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/lightbox.js"></script>
         <script type="text/javascript" src="/UsingUnfolding/assets/js/main.js"></script>
 
         <!-- own scripts-->

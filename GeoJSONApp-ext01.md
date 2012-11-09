@@ -1,33 +1,53 @@
 ---
-layout: default
+layout: page
 title: GeoJSONApp-ext01
 category: GeoJSONApp
 teaser: In the second part we are going to create a hover effect and string output.
+prev: GeoJSONApp-basic
+next: GeoJSONApp-ext02
 ---
 
 That means we don't want the `countryMarkers` to be added to the `map` and for further use we need those `Markers` globaly. So please make following changes:
 
-Delete:
+**DELETE:**
+
+{% highlight java %}
 
     map.addMarkers(countryMarkers);
 
-Insert (at top):
+{% endhighlight %}
+
+**INSERT (AT TOP):**
+
+{% highlight java %}
 
     List<Marker> countryMarkers;
 
-Change:
+{% endhighlight %}
+
+**CHANGE:**
+
+{% highlight java %}
 
     List<Marker> countryMarkers = MapUtils.createSimpleMarkers(countries);
 
-into:
+{% endhighlight %}
+
+**INTO:**
+
+{% highlight java %}
 
     countryMarkers = MapUtils.createSimpleMarkers(countries);
 
-**Run the program!**
+{% endhighlight %}
+
+**RUN THE PROGRAM!**
 
 If you get no error and you see no shape – everthing is fine!
 
 Remember, that we only want to see the country's shape when we hover it. Therefore we need to ask every country, if the mouse is inside its borders and then tell the country to draw itself. Please move to your `draw()` function and edit it like this:
+
+{% highlight java %}
 
     void draw() {
       map.draw();
@@ -39,13 +59,17 @@ Remember, that we only want to see the country's shape when we hover it. Therefo
       }
     }
 
-**Run!**
+{% endhighlight %}
+
+**RUN!**
 
 Ah! Nice! We have a hover effect. At this point I'd like to talk a little bit about the use of the properties of a geo.json feature. Often you will find really useful content inside it. For example every feature (country) of our *countries.geo.json* contains the full name of its country. You can use this to eventually display it. 
 
 The properties are stored in a `HashMap`, though you can get a value by looking for the wanted key, in this case `"name"`.
 
 Please edit your if-statement like this:
+
+{% highlight java %}
 
     if(country.isInside(map, mouseX, mouseY)){
       country.draw(map);
@@ -54,11 +78,14 @@ Please edit your if-statement like this:
       println(countryName);
     }
 
-**Run!**
+{% endhighlight %}
+
+**RUN!**
 
 Now you should have the hover effect and a string output in your console. Good Job! If you should have contrary to expectations any trouble, then you can now compare your code:
 
 {% highlight java %}
+
 import de.fhpotsdam.unfolding.mapdisplay.*;
 import de.fhpotsdam.unfolding.utils.*;
 import de.fhpotsdam.unfolding.marker.*;
@@ -102,6 +129,7 @@ void draw() {
     }
   }
 }
+
 {% endhighlight %}
 
 [next part …][GeoJSONApp-ext02]

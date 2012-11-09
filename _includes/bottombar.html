@@ -1,0 +1,16 @@
+<ul class="nav">
+  {% if page.prev != null %}
+  <li>
+    <a class="span2" href="/UsingUnfolding/{{page.prev}}.html">Previous</a>
+  </li>
+  {% endif %}
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Top</a>
+  </li>
+    {% if page.next != null %}
+  <li>
+    <a class="span2" href="/UsingUnfolding/{{page.next}}.html">Previous</a>
+  </li>
+  {% endif %}
+</ul>
+<!-- /nav -->

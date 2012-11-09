@@ -1,0 +1,11 @@
+<div id="gallery" class="row">
+    <ul>
+      {% for item in page.lightbox | array_to_sentence_string %}
+        <li class="span2">
+            <a href="/UsingUnfolding/assets/images/{{ page.title }}-{{ item }}.png" rel="lightbox[{{ page.title }}]">
+                <img src="/UsingUnfolding/assets/images/thumbs/{{ page.title }}-{{ item }}.png"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
