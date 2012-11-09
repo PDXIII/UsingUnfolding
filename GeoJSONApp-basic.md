@@ -1,19 +1,15 @@
 ---
-layout: page
+layout: default
 title: GeoJSONApp-basic
 category: GeoJSONApp
 teaser: In our first part we are going to chase some data for our map.
 ---
 
-#{{page.title}}
-
-{{page.teaser}}
-
 ##Data
 We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: [countries.geo.json][countries.geo.json].
 The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at [GeoCommons][GeoCommons]. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid *geo.json* version of this data set, but I have a gift for you: 
 
-<button><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
+<button class="btn"><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
 </button> 
 
 Drag this button into bookmark bar to create a bookmarklet.

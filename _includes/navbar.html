@@ -1,0 +1,25 @@
+<ul class="nav">
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Home</a>
+  </li>
+  <li>
+    <a class="span2" href="#">Link</a>
+  </li>
+  <li class="dropdown span2">
+    <a id="GJA" role="button" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      GeoJSONApp
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="GJA">
+      {% for page in site.pages %}
+      {% if page.category == 'GeoJSONApp' %}
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding{{ page.url }}">
+            {{ page.title }}
+          </a>
+        </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
+<!-- /nav -->

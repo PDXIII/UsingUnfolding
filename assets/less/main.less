@@ -13,5 +13,31 @@
 @import "bootstrap/bootstrap.less";
 @import "elements-master/elements.less";
 
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../font/League_Gothic-webfont.eot');
+    src: url('../font/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/League_Gothic-webfont.woff') format('woff'),
+         url('../font/League_Gothic-webfont.ttf') format('truetype'),
+         url('../font/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+a{
+    font-family: "LeagueGothicRegular", Helvetica, Arial, sans-serif;
+    background-color: @yellow;
+    letter-spacing: 0.1em;
+}
+
 //responsive
 @import "bootstrap/responsive.less";
+
+@headingsFontFamily:    "LeagueGothicRegular", Helvetica, Arial, sans-serif;
+@headingsFontWeight:    normal;    
+@baseFontFamily:        @serifFontFamily;
+@linkColor:             @grayDarker;
+@linkColorHover:        @grayDarker;
+@baseFontSize:          18px;
+@baseLineHeight:        24px;

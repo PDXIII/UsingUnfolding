@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>page.title</title>
+    <title>GeoJSONApp-ext02</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le favicon -->
@@ -14,11 +14,79 @@
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
 </head>
-    <body id="page.title">
+    <body id="GeoJSONApp-ext02">
         <div class="container">
-            <h1>GeoJSONApp-ext02</h1>
+            <div class="span10 offset1">
+                <div class="row">
+                    <div class="span8">
+                        <h1>GeoJSONApp-ext02</h1>
+                    </div>
+                    <div class="span2 hidden-phone">
+                        <div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/zipball/master">
+        download <strong>.zip</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/tarball/master">
+        download <strong>.tar</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding">
+        fork on <strong>github</strong>
+    </a>
+</div>
 
-<p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav">
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Home</a>
+  </li>
+  <li>
+    <a class="span2" href="#">Link</a>
+  </li>
+  <li class="dropdown span2">
+    <a id="GJA" role="button" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      GeoJSONApp
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="GJA">
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-basic.html">
+            GeoJSONApp-basic
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext01.html">
+            GeoJSONApp-ext01
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext02.html">
+            GeoJSONApp-ext02
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  </li>
+</ul>
+<!-- /nav -->
+                </div>
+                <h2>BlaBla</h2>
+                <p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
 
 <pre><code>List&lt;Feature&gt; airports = GeoJSONReader.loadData(this, "WorldAirports.geo.json");
 List&lt;Marker&gt; airportMarkers = MapUtils.createSimpleMarkers(airports);
@@ -152,14 +220,16 @@ for (Marker currentAirport : currentAirportList ){
 
 <p>Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit <a href="http://unfoldingmaps.org/tutorials/index.html">Unfolding tutorials</a>.</p>
 
+            </div>
         </div>
 
             <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
-        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/UsingUnfolding/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/main.js"></script>
 
         <!-- own scripts-->
     </body>

@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>page.title</title>
+    <title>GeoJSONApp-ext01</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le favicon -->
@@ -14,11 +14,79 @@
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
 </head>
-    <body id="page.title">
+    <body id="GeoJSONApp-ext01">
         <div class="container">
-            <h1>GeoJSONApp-ext01</h1>
+            <div class="span10 offset1">
+                <div class="row">
+                    <div class="span8">
+                        <h1>GeoJSONApp-ext01</h1>
+                    </div>
+                    <div class="span2 hidden-phone">
+                        <div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/zipball/master">
+        download <strong>.zip</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/tarball/master">
+        download <strong>.tar</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding">
+        fork on <strong>github</strong>
+    </a>
+</div>
 
-<p>That means we don't want the <code>countryMarkers</code> to be added to the <code>map</code> and for further use we need those <code>Markers</code> globaly. So please make following changes:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav">
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Home</a>
+  </li>
+  <li>
+    <a class="span2" href="#">Link</a>
+  </li>
+  <li class="dropdown span2">
+    <a id="GJA" role="button" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      GeoJSONApp
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="GJA">
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-basic.html">
+            GeoJSONApp-basic
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext01.html">
+            GeoJSONApp-ext01
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext02.html">
+            GeoJSONApp-ext02
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  </li>
+</ul>
+<!-- /nav -->
+                </div>
+                <h2>In the second part we are going to create a hover effect and string output.</h2>
+                <p>That means we don't want the <code>countryMarkers</code> to be added to the <code>map</code> and for further use we need those <code>Markers</code> globaly. So please make following changes:</p>
 
 <p>Delete:</p>
 
@@ -77,61 +145,65 @@
 
 <p>Now you should have the hover effect and a string output in your console. Good Job! If you should have contrary to expectations any trouble, then you can now compare your code:</p>
 
-<pre><code>import de.fhpotsdam.unfolding.mapdisplay.*;
-import de.fhpotsdam.unfolding.utils.*;
-import de.fhpotsdam.unfolding.marker.*;
-import de.fhpotsdam.unfolding.tiles.*;
-import de.fhpotsdam.unfolding.interactions.*;
-import de.fhpotsdam.unfolding.ui.*;
-import de.fhpotsdam.unfolding.*;
-import de.fhpotsdam.unfolding.core.*;
-import de.fhpotsdam.unfolding.data.*;
-import de.fhpotsdam.unfolding.geo.*;
-import de.fhpotsdam.unfolding.texture.*;
-import de.fhpotsdam.unfolding.events.*;
-import de.fhpotsdam.utils.*;
-import de.fhpotsdam.unfolding.providers.*;
-import processing.opengl.*;
-import codeanticode.glgraphics.*;
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.mapdisplay.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.utils.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.marker.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.tiles.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.interactions.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.ui.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.core.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.data.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.geo.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.texture.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.events.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.utils.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.providers.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">processing.opengl.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">codeanticode.glgraphics.*</span><span class="o">;</span>
 
-UnfoldingMap map;
-List&lt;Marker&gt; countryMarkers;
+<span class="n">UnfoldingMap</span> <span class="n">map</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span><span class="o">;</span>
 
-void setup() {
-  size(800, 600, GLConstants.GLGRAPHICS);
-  smooth();
+<span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">size</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span> <span class="mi">600</span><span class="o">,</span> <span class="n">GLConstants</span><span class="o">.</span><span class="na">GLGRAPHICS</span><span class="o">);</span>
+  <span class="n">smooth</span><span class="o">();</span>
 
-  map = new UnfoldingMap(this);
-  MapUtils.createDefaultEventDispatcher(this, map);
+  <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UnfoldingMap</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="n">MapUtils</span><span class="o">.</span><span class="na">createDefaultEventDispatcher</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
 
-  List&lt;Feature&gt; countries = GeoJSONReader.loadData(this, "countries.geo.json");
-  countryMarkers = MapUtils.createSimpleMarkers(countries);
-}
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">Feature</span><span class="o">&gt;</span> <span class="n">countries</span> <span class="o">=</span> <span class="n">GeoJSONReader</span><span class="o">.</span><span class="na">loadData</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;countries.geo.json&quot;</span><span class="o">);</span>
+  <span class="n">countryMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">countries</span><span class="o">);</span>
+<span class="o">}</span>
 
-void draw() {
-  map.draw();
-  for (int i = 0; i &lt; countryMarkers.size(); i++){
-    Marker country = countryMarkers.get(i);
-    if(country.isInside(map, mouseX, mouseY)){
-      country.draw(map);
-      HashMap countryProps = country.getProperties();
-      String countryName = countryProps.get("name").toString();
-      println(countryName);
-    }
-  }
-}
+<span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">map</span><span class="o">.</span><span class="na">draw</span><span class="o">();</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="n">Marker</span> <span class="n">country</span> <span class="o">=</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">country</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">mouseX</span><span class="o">,</span> <span class="n">mouseY</span><span class="o">)){</span>
+      <span class="n">country</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
+      <span class="n">HashMap</span> <span class="n">countryProps</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
+      <span class="n">String</span> <span class="n">countryName</span> <span class="o">=</span> <span class="n">countryProps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">println</span><span class="o">(</span><span class="n">countryName</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
+</div>
 
-<p><a href="/GeoJSONApp-ext02.html">next part …</a></p>
 
+<p><a href="/UsingUnfolding/GeoJSONApp-ext02.html">next part …</a></p>
+
+            </div>
         </div>
 
             <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
-        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/UsingUnfolding/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/main.js"></script>
 
         <!-- own scripts-->
     </body>

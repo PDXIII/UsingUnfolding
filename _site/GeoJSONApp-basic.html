@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>page.title</title>
+    <title>GeoJSONApp-basic</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le favicon -->
@@ -14,18 +14,84 @@
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
 </head>
-    <body id="page.title">
+    <body id="GeoJSONApp-basic">
         <div class="container">
-            <h1>GeoJSONApp-basic</h1>
+            <div class="span10 offset1">
+                <div class="row">
+                    <div class="span8">
+                        <h1>GeoJSONApp-basic</h1>
+                    </div>
+                    <div class="span2 hidden-phone">
+                        <div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/zipball/master">
+        download <strong>.zip</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding/tarball/master">
+        download <strong>.tar</strong>
+    </a>
+</div>
+<div class="dl-button">
+    <a href="https://github.com/PDXIII/UsingUnfolding">
+        fork on <strong>github</strong>
+    </a>
+</div>
 
-<p>In our first part we are going to chase some data for our map.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav">
+  <li>
+    <a class="span2" href="/UsingUnfolding/index.html">Home</a>
+  </li>
+  <li>
+    <a class="span2" href="#">Link</a>
+  </li>
+  <li class="dropdown span2">
+    <a id="GJA" role="button" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      GeoJSONApp
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="GJA">
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-basic.html">
+            GeoJSONApp-basic
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext01.html">
+            GeoJSONApp-ext01
+          </a>
+        </li>
+      
+      
+      
+        <li>
+          <a tabindex="-1" href="/UsingUnfolding/GeoJSONApp-ext02.html">
+            GeoJSONApp-ext02
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  </li>
+</ul>
+<!-- /nav -->
+                </div>
+                <h2>In our first part we are going to chase some data for our map.</h2>
+                <h2>Data</h2>
 
-<h2>Data</h2>
-
-<p>We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: [countries.geo.json][countries.geo.json].
+<p>We need to give our program the chance to know, if the mouse is inside a country or not. So, we need the shapes of the countries. A nice file wich serves the purpose could be found here: <a href="https://github.com/johan/world.geo.json/blob/master/countries.geo.json">countries.geo.json</a>.
 The shapes in this file are a little rough, but this provides better performance for our app. Then we need the locations of all airports. Let's take a look at <a href="http://geocommons.com/">GeoCommons</a>. Type into the search field "world airports" and hit the first result. As you can see, there is no option for downloading a valid <em>geo.json</em> version of this data set, but I have a gift for you:</p>
 
-<p><button><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
+<p><button class="btn"><a href="javascript:(function(){var currURL=document.URL;var dataSetID=currURL.match('([0-9]+)');var dataSetURL='http://geocommons.com/overlays/'+dataSetID[0]+'/features.json?geojson=1';dataSetJSON=window.open(dataSetURL,'GeoCommonsJSON');}());">GeoCommonsGEOJSON</a>
 </button></p>
 
 <p>Drag this button into bookmark bar to create a bookmarklet.</p>
@@ -54,16 +120,18 @@ The shapes in this file are a little rough, but this provides better performance
 
 <p><strong>Run!</strong></p>
 
-<p>Yes, I told you the shapes are rough, but the performance is quite good. Please don't mind the gray, you can take care about that later. The bigger problem for now is: we don't want the countries to be displayed permanently. Just when the mouse hovers it, we want to see the shape. So let`s continue with the <a href="/GeoJSONApp-ext01.html">next part …</a></p>
+<p>Yes, I told you the shapes are rough, but the performance is quite good. Please don't mind the gray, you can take care about that later. The bigger problem for now is: we don't want the countries to be displayed permanently. Just when the mouse hovers it, we want to see the shape. So let`s continue with the <a href="/UsingUnfolding/GeoJSONApp-ext01.html">next part …</a></p>
 
+            </div>
         </div>
 
             <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
-        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/UsingUnfolding/assets/js/jquery-1.8.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/UsingUnfolding/assets/js/main.js"></script>
 
         <!-- own scripts-->
     </body>
