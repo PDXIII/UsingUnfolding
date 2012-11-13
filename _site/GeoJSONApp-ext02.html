@@ -14,9 +14,8 @@
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/pygmentsstyle.css">
-    <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/lightbox.css">
 </head>
-    <body id="GeoJSONApp-ext02">
+    <body id="GeoJSONApp-ext02" style="background-image: url('/UsingUnfolding/assets/images/GeoJSONApp-ext02-title.png')">
         <div class="container">
             <div class="span10 offset1">
                 <div class="row">
@@ -46,7 +45,7 @@
                 <div class="row">
                     <ul class="nav">
   <li>
-    <a class="span2" href="/UsingUnfolding/index.html">Home</a>
+    <a class="span2" href="/UsingUnfolding/index.html">Index</a>
   </li>
   <li>
     <a class="span2" href="#">Link</a>
@@ -89,11 +88,13 @@
 <!-- /nav -->
                 </div>
                 <div class="row">
-                <div class="span10">
-                    <h2>BlaBla</h2>
+                    <div class="span10">
+                        <q>BlaBla</q>
                     </div>
                 </div>
-                <p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
+                <div class="row">
+    <div id="content" class="span10">
+        <p>Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your <code>setup()</code> function:</p>
 
 <div class="highlight"><pre><code class="java">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Feature</span><span class="o">&gt;</span> <span class="n">airports</span> <span class="o">=</span> <span class="n">GeoJSONReader</span><span class="o">.</span><span class="na">loadData</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;WorldAirports.geo.json&quot;</span><span class="o">);</span>
     <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">airportMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">airports</span><span class="o">);</span>
@@ -239,60 +240,92 @@
 
 <p>Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit <a href="http://unfoldingmaps.org/tutorials/index.html">Unfolding tutorials</a>.</p>
 
-<div id="gallery" class="row">
-    <ul>
-      
-        <li class="span2">
-            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-1.png" rel="lightbox[GeoJSONApp-ext02]">
-                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-1.png"/>
-            </a>
-        </li>
-        
-        <li class="span2">
-            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-2.png" rel="lightbox[GeoJSONApp-ext02]">
-                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-2.png"/>
-            </a>
-        </li>
-        
-        <li class="span2">
-            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-3.png" rel="lightbox[GeoJSONApp-ext02]">
-                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-3.png"/>
-            </a>
-        </li>
-        
-        <li class="span2">
-            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-4.png" rel="lightbox[GeoJSONApp-ext02]">
-                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-4.png"/>
-            </a>
-        </li>
-        
-        <li class="span2">
-            <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-5.png" rel="lightbox[GeoJSONApp-ext02]">
-                <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-5.png"/>
-            </a>
-        </li>
-        
-    </ul>
+    </div>
 </div>
 
 
+    <div class="row">
 
 
+    <div class="span3">
+        <div class="previewtile">
+    <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-1.png" rel="lightbox[GeoJSONApp-ext02]">
+                <div class="previewimage">
+                    <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-1.png"/>
+                </div>
 
+    </a>
+          </div>
+    </div>
+
+    <div class="span3">
+        <div class="previewtile">
+    <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-2.png" rel="lightbox[GeoJSONApp-ext02]">
+                <div class="previewimage">
+                    <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-2.png"/>
+                </div>
+
+    </a>
+          </div>
+    </div>
+
+    <div class="span3">
+        <div class="previewtile">
+    <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-3.png" rel="lightbox[GeoJSONApp-ext02]">
+                <div class="previewimage">
+                    <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-3.png"/>
+                </div>
+
+    </a>
+          </div>
+    </div>
+
+    <div class="span3">
+        <div class="previewtile">
+    <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-4.png" rel="lightbox[GeoJSONApp-ext02]">
+                <div class="previewimage">
+                    <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-4.png"/>
+                </div>
+
+    </a>
+          </div>
+    </div>
+
+    <div class="span3">
+        <div class="previewtile">
+    <a href="/UsingUnfolding/assets/images/GeoJSONApp-ext02-5.png" rel="lightbox[GeoJSONApp-ext02]">
+                <div class="previewimage">
+                    <img src="/UsingUnfolding/assets/images/thumbs/GeoJSONApp-ext02-5.png"/>
+                </div>
+
+    </a>
+          </div>
+    </div>
+
+</div>
+
+
+<br />
 <div class="row">
-    <ul class="nav">
-  
-  <li>
-    <a class="span2" href="/UsingUnfolding/GeoJSONApp-ext01.html">Previous</a>
-  </li>
-  
-  <li>
-    <a class="span2" href="/UsingUnfolding/index.html">Top</a>
-  </li>
+
+  <ul class="nav">
     
-</ul>
+    <li>
+      <a class="span2" href="/UsingUnfolding/GeoJSONApp-ext01.html">previous</a>
+    </li>
+    
+  
+      
+  
+    
+    <li>
+      <a class="span2" href="/UsingUnfolding/index.html">index</a>
+    </li>
+    
+  </ul>
 <!-- /nav -->
 </div>
+<br />
                 <br />
                 <br />
 

@@ -4,6 +4,7 @@ title: GeoJSONApp-basic
 category: GeoJSONApp
 teaser: In our first part we are going to chase some data for our map.
 next: GeoJSONApp-ext01
+titleimage: GeoJSONApp-basic-title.png
 ---
 
 ##Data

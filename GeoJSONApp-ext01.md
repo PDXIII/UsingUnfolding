@@ -5,6 +5,16 @@ category: GeoJSONApp
 teaser: In the second part we are going to create a hover effect and string output.
 prev: GeoJSONApp-basic
 next: GeoJSONApp-ext02
+lightbox:
+- GeoJSONApp-ext01-1a.png
+- GeoJSONApp-ext01-1b.png
+- GeoJSONApp-ext01-2a.png
+- GeoJSONApp-ext01-2b.png
+- GeoJSONApp-ext01-3a.png
+- GeoJSONApp-ext01-3b.png
+- GeoJSONApp-ext01-4a.png
+- GeoJSONApp-ext01-4b.png
+titleimage: GeoJSONApp-ext01-title.png
 ---
 
 That means we don't want the `countryMarkers` to be added to the `map` and for further use we need those `Markers` globaly. So please make following changes:

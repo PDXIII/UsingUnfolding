@@ -12,6 +12,7 @@
 
 @import "bootstrap/bootstrap.less";
 @import "elements-master/elements.less";
+@import "lightbox/lightbox.less";
 
 @font-face {
     font-family: 'League Gothic';
@@ -22,7 +23,6 @@
          url('../webfonts/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
     font-weight: normal;
     font-style: italic;
-
 }
 
 /* Italic */
@@ -35,7 +35,27 @@
          url('../webfonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+h1{
+    font-style: italic;
+    font-size: 72px;
+    padding-top: 170px;
+    letter-spacing: 0.05em;
+    color: @blue;
+    line-height: 72px;
+}
+
+h2{
+    background-color: @blue;
+    color: @grayLighter;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    font-style: italic;
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-transform: uppercase;
 }
 
 a{
@@ -47,6 +67,7 @@ a{
 }
 a:hover{
     background-color: @orange;
+    text-decoration: none;
 }
 strong{
     font-family: "League Gothic", Helvetica, Arial, sans-serif;
@@ -59,6 +80,22 @@ strong{
     padding-left: 5px;
     padding-right: 5px;
     text-transform: uppercase;
+}
+
+q{
+    font-style: italic;
+    font-size: 24px;
+    line-height: 36px;
+    font-family: @baseFontFamily;
+    letter-spacing: 0em;
+
+}
+
+#content{
+    background-color: @transWhite;
+}
+.lightbox{
+    background-color: @yellow;
 }
 
 #dlbuttons{
@@ -103,13 +140,31 @@ strong{
     }
 }
 
-h1{
-    font-style: italic;
-    font-size: 72px;
-    padding-top: 170px;
-    letter-spacing: 0.05em;
-    color: @yellow;
-    line-height: 72px;
+.previewtile{
+    background-color: @transWhite;
+    .previewimage{
+        height: 180px;
+        overflow: hidden;
+        img{
+            display: inline;
+            top: 0px;
+        }
+    }
+    .previewtext{
+        margin-top: -36px;
+        h1{
+            // margin-top: -36px;
+            padding-top: 0px;
+            font-size: 36px;
+            line-height: 36px;
+            margin-top: 0px;
+            // display: inline;
+        }
+        q{
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
 }
 //responsive
 @import "bootstrap/responsive.less";
@@ -125,3 +180,12 @@ h1{
 @dropdownBackground:            @yellow;
 @dropdownLinkColorHover:        @grayDark;
 @dropdownLinkBackgroundHover:   @orange;
+
+@transWhite: rgba(255,255,255,0.5);
+
+body {
+    background-color:  transparent;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center; 
+}

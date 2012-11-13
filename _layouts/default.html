@@ -14,9 +14,8 @@
     <!-- own css-->
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/pygmentsstyle.css">
-    <link rel="stylesheet" type="text/css" href="/UsingUnfolding/assets/css/lightbox.css">
 </head>
-    <body id="{{ page.title }}">
+    <body id="{{ page.title }}" style="background-image: url('/UsingUnfolding/assets/images/{{ page.titleimage }}')">
         <div class="container">
             <div class="span10 offset1">
                 <div class="row">
@@ -31,8 +30,8 @@
                     {% include navbar.html %}
                 </div>
                 <div class="row">
-                <div class="span10">
-                    <h2>{{ page.teaser }}</h2>
+                    <div class="span10">
+                        <q>{{ page.teaser }}</q>
                     </div>
                 </div>
                 {{ content }}

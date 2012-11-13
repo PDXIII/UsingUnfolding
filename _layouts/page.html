@@ -1,9 +1,16 @@
 ---
 layout: default
 ---
-
-{{ content }}
-
 <div class="row">
-    {% include bottombar.html %}
+    <div id="content" class="span10">
+        {{ content }}
+    </div>
 </div>
+
+{% if page.lightbox != null%}
+    {% include lightbox.html %}
+{% endif%}
+
+<br />
+{% include bottombar.html %}
+<br />

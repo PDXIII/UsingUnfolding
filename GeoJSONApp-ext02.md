@@ -5,11 +5,12 @@ category: GeoJSONApp
 teaser: BlaBla
 prev: GeoJSONApp-ext01
 lightbox: 
-- 1
-- 2
-- 3
-- 4
-- 5
+- GeoJSONApp-ext02-1.png
+- GeoJSONApp-ext02-2.png
+- GeoJSONApp-ext02-3.png
+- GeoJSONApp-ext02-4.png
+- GeoJSONApp-ext02-5.png
+titleimage: GeoJSONApp-ext02-title.png
 ---
 
 Now let's lay hand on the airports. To get an easy entry please insert thes lines at the end of your `setup()` function:
@@ -150,8 +151,6 @@ Now we have a good structure, so let's play with it. We need to edit the `else` 
 
 ##Style
 Now it's time to get rid of the gray and add a little style, but you should do this on your own. For more tutorials concerning this and other topics, please visit [Unfolding tutorials][Unfolding tutorials].
-
-{% include lightbox.html %}
 
 
 {% include linklist.md %}
