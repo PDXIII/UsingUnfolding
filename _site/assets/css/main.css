@@ -6917,6 +6917,7 @@ h1 {
   letter-spacing: 0.05em;
   color: #049cdb;
   line-height: 72px;
+  text-shadow: -1px -1px 1px #036690, 1px 1px 1px #30c0fb;
 }
 h2 {
   background-color: #049cdb;
@@ -6928,6 +6929,7 @@ h2 {
   padding-left: 5px;
   padding-right: 5px;
   text-transform: uppercase;
+  text-shadow: -1px -1px 1px #036690, 1px 1px 1px #30c0fb;
 }
 a {
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
@@ -6935,10 +6937,12 @@ a {
   letter-spacing: 0.1em;
   padding-left: 5px;
   padding-right: 5px;
+  text-shadow: -1px -1px 1px #c09100, 1px 1px 1px #ffd75a;
 }
 a:hover {
   background-color: #f89406;
   text-decoration: none;
+  text-shadow: -1px -1px 1px #ad6704, 1px 1px 1px #fbb450;
 }
 strong {
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
@@ -6951,6 +6955,7 @@ strong {
   padding-left: 5px;
   padding-right: 5px;
   text-transform: uppercase;
+  text-shadow: -1px -1px 1px #5c1611, 1px 1px 1px #d83a2e;
 }
 q {
   font-style: italic;
@@ -6961,9 +6966,8 @@ q {
 }
 #content {
   background-color: rgba(255, 255, 255, 0.7);
-}
-.lightbox {
-  background-color: #ffc40d;
+  padding: 12px 12px 0px 12px;
+  margin-top: 24px;
 }
 #dlbuttons {
   list-style-type: none;
@@ -6999,7 +7003,6 @@ q {
   text-transform: uppercase;
 }
 .nav li a:hover {
-  text-decoration: underline;
   background-color: #f89406;
 }
 .nav .dropdown-menu {
@@ -7013,6 +7016,11 @@ q {
 }
 .previewtile {
   background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 12px 0px 12px;
+  margin-top: 24px;
+}
+.previewtile a {
+  background-color: transparent;
 }
 .previewtile .previewimage {
   height: 180px;
@@ -7034,6 +7042,9 @@ q {
 .previewtile .previewtext q {
   font-size: 18px;
   line-height: 24px;
+}
+.previewtile:hover {
+  background-color: rgba(255, 196, 13, 0.7);
 }
 /*!
  * Bootstrap Responsive v2.1.1
@@ -8773,18 +8784,31 @@ q {
   background-color: transparent;
 }
 .lb-prev:hover {
-  background: url(../img/lightbox/prev.png);
-  background-color: rgba(255, 196, 13, 0.5);
+  background: url(/UsingUnfolding/assets/images/lightbox/prev.png);
 }
 .lb-next:hover {
-  background: url(../img/lightbox/next.png);
-  background-color: rgba(255, 196, 13, 0.5);
+  background: url(/UsingUnfolding/assets/images/lightbox/next.png);
+}
+.lb-next:hover,
+.lb-prev:hover {
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
 }
 .lb-outerContainer {
   background-color: transparent;
 }
+.lb-data .lb-close {
+  width: 90px;
+  height: 26px;
+  padding: 0;
+}
 #lightboxOverlay {
   background-color: rgba(255, 255, 255, 0.7);
+}
+.whiteSpace {
+  padding: 12px 12px 0px 12px;
+  margin-top: 24px;
 }
 body {
   background-color: transparent;

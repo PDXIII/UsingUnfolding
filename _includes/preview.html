@@ -1,10 +1,9 @@
 <div class="row">
-
 {% for page in site.pages %}
 {% if page.category == 'GeoJSONApp' %}
     <div class="span3">
-        <a href="/UsingUnfolding{{ page.url }}">
-            <div class="previewtile">
+        <div class="previewtile">
+            <a href="/UsingUnfolding{{ page.url }}">
                 <div class="previewimage">
                     <img src="/UsingUnfolding/assets/images/thumbs/{{ page.titleimage }}"></img>
                 </div>
@@ -16,8 +15,8 @@
                         {{ page.teaser }}
                     </q>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
 {% endif %}
 {% endfor %}

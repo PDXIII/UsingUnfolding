@@ -1,15 +1,13 @@
 <div class="row">
-
 {% for item in page.lightbox | array_to_sentence_string %}
     <div class="span3">
         <div class="previewtile">
-    <a href="/UsingUnfolding/assets/images/{{ item }}" rel="lightbox[{{ page.title }}]">
+            <a href="/UsingUnfolding/assets/images/{{ item }}" rel="lightbox[{{ page.title }}]">
                 <div class="previewimage">
                     <img src="/UsingUnfolding/assets/images/thumbs/{{ item }}"/>
                 </div>
-
-    </a>
-          </div>
+            </a>
+        </div>
     </div>
 {% endfor %}
 </div>
