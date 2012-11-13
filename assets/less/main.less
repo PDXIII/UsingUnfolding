@@ -169,6 +169,7 @@ q{
 //responsive
 @import "bootstrap/responsive.less";
 
+// overwriting bootstrap variables
 @headingsFontFamily:    "League Gothic", Helvetica, Arial, sans-serif;
 @headingsFontWeight:    normal;    
 @baseFontFamily:        @serifFontFamily;
@@ -181,8 +182,33 @@ q{
 @dropdownLinkColorHover:        @grayDark;
 @dropdownLinkBackgroundHover:   @orange;
 
-@transWhite: rgba(255,255,255,0.8);
+// overwriting lightbox variables
 
+.lb-prev, .lb-next{
+    width: 20%;
+    background-image: none;
+    background-color: transparent;
+}
+.lb-prev:hover, {
+    background: url(../img/lightbox/prev.png);
+    background-color: @transYellow;
+}
+.lb-next:hover{
+    background: url(../img/lightbox/next.png);
+    background-color: @transYellow;
+}
+
+.lb-outerContainer{
+    background-color: transparent;
+}
+
+#lightboxOverlay{
+    background-color: @transWhite;
+}
+
+// own variables
+@transWhite: rgba(255,255,255,0.7);
+@transYellow: rgba(255, 196, 13, 0.5);
 body {
     background-color:  transparent;
     background-repeat:no-repeat;

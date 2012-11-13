@@ -6960,7 +6960,7 @@ q {
   letter-spacing: 0em;
 }
 #content {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .lightbox {
   background-color: #ffc40d;
@@ -7012,7 +7012,7 @@ q {
   background-clip: padding-box;
 }
 .previewtile {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .previewtile .previewimage {
   height: 180px;
@@ -8765,6 +8765,26 @@ q {
     height: auto !important;
     overflow: visible !important;
   }
+}
+.lb-prev,
+.lb-next {
+  width: 20%;
+  background-image: none;
+  background-color: transparent;
+}
+.lb-prev:hover {
+  background: url(../img/lightbox/prev.png);
+  background-color: rgba(255, 196, 13, 0.5);
+}
+.lb-next:hover {
+  background: url(../img/lightbox/next.png);
+  background-color: rgba(255, 196, 13, 0.5);
+}
+.lb-outerContainer {
+  background-color: transparent;
+}
+#lightboxOverlay {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 body {
   background-color: transparent;
