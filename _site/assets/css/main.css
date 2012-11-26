@@ -6913,11 +6913,17 @@ a.badge:hover {
 h1 {
   font-style: italic;
   font-size: 72px;
-  padding-top: 170px;
   letter-spacing: 0.05em;
   color: #049cdb;
   line-height: 72px;
   text-shadow: -1px -1px 1px #036690, 1px 1px 1px #30c0fb;
+}
+h3 {
+  font-size: 36px;
+  line-height: 48px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 12px 0px 12px;
+  margin-top: 24px;
 }
 h2 {
   background-color: #049cdb;
@@ -6930,6 +6936,11 @@ h2 {
   padding-right: 5px;
   text-transform: uppercase;
   text-shadow: -1px -1px 1px #036690, 1px 1px 1px #30c0fb;
+}
+p {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 12px 0px 12px;
+  margin-top: 24px;
 }
 a {
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
@@ -6957,23 +6968,13 @@ strong {
   text-transform: uppercase;
   text-shadow: -1px -1px 1px #5c1611, 1px 1px 1px #d83a2e;
 }
-q {
-  font-style: italic;
-  font-size: 24px;
-  line-height: 36px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  letter-spacing: 0em;
-}
 #content {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 12px 12px 0px 12px;
   margin-top: 24px;
 }
-#dlbuttons {
-  list-style-type: none;
+.dlbuttons {
   float: right;
-}
-#dlbuttons li {
   margin-top: 12px;
   padding-top: 24px;
   height: 48px;
@@ -6987,12 +6988,12 @@ q {
   background-clip: padding-box;
   text-align: center;
 }
-#dlbuttons li a {
+.dlbuttons a {
   background-color: transparent;
   font-size: 24px;
   text-transform: uppercase;
 }
-#dlbuttons li:hover {
+.dlbuttons:hover {
   background-color: #f89406;
 }
 .nav li a {
@@ -7015,12 +7016,15 @@ q {
   background-clip: padding-box;
 }
 .previewtile {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 196, 13, 0.7);
+  height: 360px;
+  overflow: hidden;
   padding: 12px 12px 0px 12px;
   margin-top: 24px;
 }
 .previewtile a {
   background-color: transparent;
+  text-shadow: none;
 }
 .previewtile .previewimage {
   height: 180px;
@@ -7030,21 +7034,18 @@ q {
   display: inline;
   top: 0px;
 }
-.previewtile .previewtext {
-  margin-top: -36px;
-}
-.previewtile .previewtext h1 {
-  padding-top: 0px;
+.previewtile h1 {
   font-size: 36px;
   line-height: 36px;
-  margin-top: 0px;
+  display: inline;
 }
-.previewtile .previewtext q {
-  font-size: 18px;
+.previewtile h3 {
+  font-size: 24px;
   line-height: 24px;
+  background-color: transparent;
 }
 .previewtile:hover {
-  background-color: rgba(255, 196, 13, 0.7);
+  background-color: rgba(248, 148, 6, 0.7);
 }
 /*!
  * Bootstrap Responsive v2.1.1

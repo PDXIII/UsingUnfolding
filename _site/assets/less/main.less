@@ -40,11 +40,17 @@
 h1{
     font-style: italic;
     font-size: 72px;
-    padding-top: 170px;
     letter-spacing: 0.05em;
     color: @blue;
     line-height: 72px;
     .letterPressShadow (@blue);
+}
+
+h3{
+    font-size: 36px;
+    line-height: 48px;
+    background-color: @transWhite;
+    .whiteSpace;
 }
 
 h2{
@@ -58,7 +64,11 @@ h2{
     padding-right: 5px;
     text-transform: uppercase;
     .letterPressShadow (@blue);
+}
 
+p{
+    background-color: @transWhite;
+    .whiteSpace;
 }
 
 a{
@@ -89,41 +99,31 @@ strong{
     .letterPressShadow (@red);
 }
 
-q{
-    font-style: italic;
-    font-size: 24px;
-    line-height: 36px;
-    font-family: @baseFontFamily;
-    letter-spacing: 0em;
-
-}
-
 #content{
     background-color: @transWhite;
     .whiteSpace;
 }
 
-#dlbuttons{
-    list-style-type: none;
+.dlbuttons{
     .pull-right;
-    li{
-        margin-top: 12px;
-        padding-top: 24px;
-        height: 48px;
-        width:  72px;
-        background-color: @yellow;
-        .rounded(36px);
-        text-align: center;
-        a{
-            background-color: transparent;
-            font-size: 24px;
-            text-transform: uppercase;
-        }
-    }
-    li:hover{
-        background-color: @orange;
+    margin-top: 12px;
+    padding-top: 24px;
+    height: 48px;
+    width:  72px;
+    background-color: @yellow;
+    .rounded(36px);
+    text-align: center;
+    a{
+        background-color: transparent;
+        font-size: 24px;
+        text-transform: uppercase;
     }
 }
+
+.dlbuttons:hover{
+    background-color: @orange;
+}
+
 .nav{
     li{
         a{
@@ -145,11 +145,15 @@ q{
 }
 
 .previewtile{
-    background-color: @transWhite;
+    background-color: @transYellow;
+    height: 360px;
+    overflow: hidden;
     a{
         background-color: transparent;
+        text-shadow: none;
     }
     .previewimage{
+        // margin-top: -36px;
         height: 180px;
         overflow: hidden;
         img{
@@ -157,26 +161,25 @@ q{
             top: 0px;
         }
     }
-    .previewtext{
-        margin-top: -36px;
-        h1{
-            // margin-top: -36px;
-            padding-top: 0px;
-            font-size: 36px;
-            line-height: 36px;
-            margin-top: 0px;
-            // display: inline;
-        }
-        q{
-            font-size: 18px;
-            line-height: 24px;
-        }
+    h1{
+        // padding-top: 0px;
+        font-size: 36px;
+        line-height: 36px;
+        // margin-top: 0px;
+        display: inline;
+    }
+    h3{
+        font-size: 24px;
+        line-height: 24px;
+        // margin:0;
+        // padding: 0;
+        background-color: transparent;
     }
     .whiteSpace;
 }
 
 .previewtile:hover{
-    background-color: @transYellow;
+    background-color: @transOrange;
 }
 //responsive
 @import "bootstrap/responsive.less";
@@ -234,6 +237,7 @@ q{
 // own variables
 @transWhite: rgba(255,255,255,0.7);
 @transYellow: rgba(255, 196, 13, 0.7);
+@transOrange: rgba(248, 148, 6, 0.7);
 
 // own mixins
 
