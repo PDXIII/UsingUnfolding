@@ -101,50 +101,17 @@
 
 <p><strong>DELETE:</strong></p>
 
-<div class="highlight"><pre><code class="java">    <span class="n">map</span><span class="o">.</span><span class="na">addMarkers</span><span class="o">(</span><span class="n">countryMarkers</span><span class="o">);</span>
-</code></pre>
-</div>
-
-
 <p><strong>INSERT (AT TOP):</strong></p>
-
-<div class="highlight"><pre><code class="java">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span><span class="o">;</span>
-</code></pre>
-</div>
-
 
 <p><strong>CHANGE:</strong></p>
 
-<div class="highlight"><pre><code class="java">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">countries</span><span class="o">);</span>
-</code></pre>
-</div>
-
-
 <p><strong>INTO:</strong></p>
-
-<div class="highlight"><pre><code class="java">    <span class="n">countryMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">countries</span><span class="o">);</span>
-</code></pre>
-</div>
-
 
 <p><strong>RUN THE PROGRAM!</strong></p>
 
 <p>If you get no error and you see no shape – everthing is fine!</p>
 
 <p>Remember, that we only want to see the country's shape when we hover it. Therefore we need to ask every country, if the mouse is inside its borders and then tell the country to draw itself. Please move to your <code>draw()</code> function and edit it like this:</p>
-
-<div class="highlight"><pre><code class="java">    <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">map</span><span class="o">.</span><span class="na">draw</span><span class="o">();</span>
-      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
-        <span class="n">Marker</span> <span class="n">country</span> <span class="o">=</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">country</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">mouseX</span><span class="o">,</span> <span class="n">mouseY</span><span class="o">)){</span>
-          <span class="n">country</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
-        <span class="o">}</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-</code></pre>
-</div>
-
 
 <p><strong>RUN!</strong></p>
 
@@ -154,66 +121,9 @@
 
 <p>Please edit your if-statement like this:</p>
 
-<div class="highlight"><pre><code class="java">    <span class="k">if</span><span class="o">(</span><span class="n">country</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">mouseX</span><span class="o">,</span> <span class="n">mouseY</span><span class="o">)){</span>
-      <span class="n">country</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
-      <span class="n">HashMap</span> <span class="n">countryProps</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
-      <span class="n">String</span> <span class="n">countryName</span> <span class="o">=</span> <span class="n">countryProps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
-      <span class="n">println</span><span class="o">(</span><span class="n">countryName</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre>
-</div>
-
-
 <p><strong>RUN!</strong></p>
 
 <p>Now you should have the hover effect and a string output in your console. Good Job! If you should have contrary to expectations any trouble, then you can now compare your code:</p>
-
-<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.mapdisplay.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.utils.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.marker.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.tiles.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.interactions.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.ui.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.core.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.data.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.geo.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.texture.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.events.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.utils.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.fhpotsdam.unfolding.providers.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">processing.opengl.*</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">codeanticode.glgraphics.*</span><span class="o">;</span>
-
-<span class="n">UnfoldingMap</span> <span class="n">map</span><span class="o">;</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Marker</span><span class="o">&gt;</span> <span class="n">countryMarkers</span><span class="o">;</span>
-
-<span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">size</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span> <span class="mi">600</span><span class="o">,</span> <span class="n">GLConstants</span><span class="o">.</span><span class="na">GLGRAPHICS</span><span class="o">);</span>
-  <span class="n">smooth</span><span class="o">();</span>
-
-  <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UnfoldingMap</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-  <span class="n">MapUtils</span><span class="o">.</span><span class="na">createDefaultEventDispatcher</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
-
-  <span class="n">List</span><span class="o">&lt;</span><span class="n">Feature</span><span class="o">&gt;</span> <span class="n">countries</span> <span class="o">=</span> <span class="n">GeoJSONReader</span><span class="o">.</span><span class="na">loadData</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;countries.geo.json&quot;</span><span class="o">);</span>
-  <span class="n">countryMarkers</span> <span class="o">=</span> <span class="n">MapUtils</span><span class="o">.</span><span class="na">createSimpleMarkers</span><span class="o">(</span><span class="n">countries</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">map</span><span class="o">.</span><span class="na">draw</span><span class="o">();</span>
-  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
-    <span class="n">Marker</span> <span class="n">country</span> <span class="o">=</span> <span class="n">countryMarkers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">country</span><span class="o">.</span><span class="na">isInside</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="n">mouseX</span><span class="o">,</span> <span class="n">mouseY</span><span class="o">)){</span>
-      <span class="n">country</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
-      <span class="n">HashMap</span> <span class="n">countryProps</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
-      <span class="n">String</span> <span class="n">countryName</span> <span class="o">=</span> <span class="n">countryProps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">).</span><span class="na">toString</span><span class="o">();</span>
-      <span class="n">println</span><span class="o">(</span><span class="n">countryName</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
 
 <p><a href="/UsingUnfolding/GeoJSONApp-ext02.html">next part …</a></p>
 
